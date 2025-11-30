@@ -7,7 +7,6 @@ python manage.py test api
 ```
 
 ### These tests verify:
-```markdown
 
 ✔️ CRUD operations for the Book API
 
