@@ -4,9 +4,9 @@ To execute API tests:
 
 ```bash
 python manage.py test api
-```bash
 
-These tests verify:
+### These tests verify:
+```markdown
 
 ✔️ CRUD operations for the Book API
 
