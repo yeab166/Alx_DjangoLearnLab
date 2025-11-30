@@ -4,6 +4,7 @@ To execute API tests:
 
 ```bash
 python manage.py test api
+```bash
 
 These tests verify:
 
