@@ -1,0 +1,122 @@
+/* ===========================
+   Modern Update Profile Page
+   =========================== */
+
+body {
+    background: #f5f6fa;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+/* Container */
+.update-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Page title */
+.title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 30px;
+}
+
+/* Profile box */
+.profile-box {
+    background: #fff;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    animation: fadeIn 0.6s ease;
+    text-align: center;
+}
+
+/* Profile picture */
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid #e0e4ea;
+}
+
+/* Section titles */
+.section-title {
+    font-size: 17px;
+    font-weight: lighter;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    color: #333;
+    text-align: left;
+}
+
+/* Form styles */
+.update-form {
+    text-align: left;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.update-form input[type="text"],
+.update-form input[type="email"],
+.update-form input[type="file"],
+.update-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccd1d9;
+    background: #fafbfc;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.update-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.update-form input:focus,
+.update-form textarea:focus {
+    border-color: #0077ff;
+    box-shadow: 0 0 6px rgba(0,123,255,0.25);
+}
+
+/* Submit button */
+.submit-btn {
+    width: 100%;
+    background: #0077ff;
+    color: #fff;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #005fcc;
+    transform: translateY(-2px);
+}
+
+.signin-message {
+    text-align: center;
+    font-size: 24px;
+    color: #555;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
