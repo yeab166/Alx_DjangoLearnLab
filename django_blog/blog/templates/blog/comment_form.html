@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<h2>Edit Comment</h2>
+
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Save Changes</button>
+  
+  <a href="{{ object.post.get_absolute_url }}"
+  style="text-decoration: none; font-weight: bold; background-color: rgb(232, 114, 114); padding: 11px; border-radius: 10px; color: black; margin-left: 20px;">Cancel</a>
+</form>
+{% endblock %}
