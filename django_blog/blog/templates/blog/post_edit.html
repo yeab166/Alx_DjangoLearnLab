@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{% if form.instance.pk %}Edit Post{% else %}New Post{% endif %}{% endblock %}
+
+{% block content %}
+<h1>Edit Post</h1>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  <div>
+    {{ form.title.label_tag }}
+    {{ form.title }}
+    {{ form.title.errors }}
+  </div>
+
+  <div style="padding-top: 20px; padding-bottom: 20px;">
+    {{ form.content.label_tag }}
+    {{ form.content }}
+    {{ form.content.errors }}
+  </div>
+  <label for="photo">Image:</label>
+  <div id="photo" style="padding-top: 7px; padding-bottom: 40px;">
+    {{ form.photo }}
+  </div>
+
+  <div>
+    {{ form.published.label_tag }}
+    {{ form.published }}
+  </div>
+
+  <button type="submit">Save</button>
+  <a href="{% url 'blog:profile' username=request.user.username %}"style="text-decoration: none; font-weight: bold; background-color: rgb(232, 114, 114); padding: 11px; border-radius: 10px; color: black; margin-left: 20px;">Cancel</a>
+</form>
+{% endblock %}
