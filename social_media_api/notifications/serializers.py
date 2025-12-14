@@ -1,16 +1,17 @@
 from rest_framework import serializers
 from .models import Notification
 
-
 class NotificationSerializer(serializers.ModelSerializer):
-    actor_username = serializers.CharField(source="actor.username", read_only=True)
+    actor = serializers.StringRelatedField()
+    target = serializers.StringRelatedField()
 
     class Meta:
         model = Notification
-        fields = [
-            "id",
-            "actor_username",
-            "verb",
-            "is_read",
-            "timestamp",
-        ]
+        fields = (
+            'id',
+            'actor',
+            'verb',
+            'target',
+            'is_read',
+            'timestamp',
+        )
