@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %} {% block title %}Delete Post{% endblock %} 
+{% block content %}
+<h1>Delete Post</h1>
+<p>Are you sure you want to delete "<strong>{{ object.title }}</strong>"?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Confirm delete</button>
+  <a
+    href="{{ object.get_absolute_url }}"
+    style="
+      text-decoration: none;
+      font-weight: bold;
+      background-color: rgb(232, 114, 114);
+      padding: 11px;
+      border-radius: 10px;
+      color: black;
+      margin-left: 20px;
+    "
+    >Cancel</a
+  >
+</form>
+{% endblock %}

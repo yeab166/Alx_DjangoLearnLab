@@ -1,0 +1,51 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'blog/css/update_profile.css' %}">
+
+<div class="update-container">
+
+    {% if user.is_authenticated %}
+
+        <h2 class="title">My Profile</h2>
+
+        <div class="profile-box">
+            <img 
+                class="profile-picture"
+                src="{% if user.profile.profile_picture %}{{ user.profile.profile_picture.url }}{% endif %}" 
+                alt="Profile Picture"
+            >
+
+            <form method="POST" enctype="multipart/form-data" class="update-form">
+                {% csrf_token %}
+
+                <h3 style="font-weight: bold; margin-bottom: 15px;">Account Info</h3>
+                <div class="form-group">
+                    {{ user_form.as_p }}
+                </div>
+
+                <p class="section-title">Bio:</p>
+
+                <div class="form-group">
+                    {{ profile_form.bio }}
+                </div>
+
+                <div class="form-group">
+                    {{ profile_form.profile_picture }}
+                </div>
+
+                <button type="submit" class="submit-btn">Update Profile</button>
+            </form>
+        </div>
+
+    {% else %}
+
+        <h2 class="signin-message">Please sign in to access this feature</h2>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "blog/base.html" %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'blog/css/profile.css' %}" />
+{% endblock %} {% block content %}
+
+<div class="profile-container">
+  <!-- Profile Header -->
+  <h2 class="profile-title">{{ user_obj.username }}'s Profile</h2>
+
+  <div class="profile-card">
+    <!-- Profile Picture -->
+    <img
+      class="profile-picture"
+      src="{{ profile.profile_picture.url }}"
+      alt="Profile Picture"
+    />
+
+    <!-- Username -->
+    <h3 class="profile-username">{{ user_obj.username }}</h3>
+
+    <!-- Bio -->
+    <p class="profile-bio">{{ profile.bio }}</p>
+
+    <!-- Only show Update Profile button to profile owner -->
+    {% if user == user_obj %}
+    <a href="{% url 'blog:update_profile' %}" class="update-btn"
+      >Update Profile</a
+    >
+    {% endif %}
+  </div>
+
+  <!-- Posts Section -->
+  <h2>{{ user_obj.username }}'s Posts</h2>
+
+  <ul class="post-list">
+    {% for post in posts %}
+    <li class="post-item">
+      <!-- Post Image -->
+      <img
+        src="{% if post.photo %}{{ post.photo.url }}{% else %}{% static 'blog/images/default.png' %}{% endif %}"
+        width="350"
+        style="border-radius: 5px"
+      />
+
+      <h2><a href="{{ post.get_absolute_url }}">{{ post.title|title }}</a></h2>
+
+      <p class="paragraph">{{ post.content|truncatechars:200 }}</p>
+
+      <!-- Post Meta: Author + Date -->
+      <p class="meta">
+        By
+        <a href="{% url 'blog:profile' post.author.username %}" class="link"
+          >{{ post.author.username }}</a
+        >
+        <br />
+        <span class="post-date"
+          >{{ post.created_at|date:"F j, Y, g:i a" }}</span
+        >
+      </p>
+
+      <!-- Only show Edit/Delete for the owner -->
+      {% if user == post.author %}
+
+      <a
+        href="{% url 'blog:post-update' post.id %}"
+        style="
+          display: inline-block;
+          padding: 4px 16px;
+          background: #69acf9;
+          color: white;
+          font-weight: 600;
+          text-decoration: none;
+          border-radius: 10px;
+          margin-right: 8px;
+          transition: 0.3s;
+          margin-top: 10px;
+        "
+        onmouseover="this.style.background='#005fcc'; this.style.transform='translateY(-2px)';"
+        onmouseout="this.style.background='#0077ff'; this.style.transform='translateY(0)';"
+        >Edit</a
+      >
+
+      <a
+        href="{% url 'blog:post-delete' post.id %}"
+        style="
+          display: inline-block;
+          padding: 4px 14px;
+          background: #f47268;
+          color: white;
+          font-weight: 600;
+          text-decoration: none;
+          border-radius: 10px;
+          transition: 0.3s;
+        "
+        onmouseover="this.style.background='#d32f2f'; this.style.transform='translateY(-2px)';"
+        onmouseout="this.style.background='#f44336'; this.style.transform='translateY(0)';"
+        >Delete</a
+      >
+
+      {% endif %}
+    </li>
+
+    {% empty %}
+    <li>No posts yet.</li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

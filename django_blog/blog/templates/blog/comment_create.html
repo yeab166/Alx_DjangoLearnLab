@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<h2>Add Comment</h2>
+
+<form method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    {{ form.content.label_tag }}
+    {{ form.content }}
+    {% if form.content.errors %}
+        <div class="error">
+        {% for error in form.content.errors %}
+            {{ error }}
+        {% endfor %}
+        </div>
+    {% endif %}
+  </div>
+  <button type="submit" style="margin-top: 10px;">Submit</button>
+  <a href="{{ post.get_absolute_url }}" 
+        style="text-decoration: none; font-weight: bold; background-color: rgb(232, 114, 114); padding: 11px; border-radius: 10px; color: black; margin-left: 20px;">Cancel</a>
+</form>
+{% endblock %}

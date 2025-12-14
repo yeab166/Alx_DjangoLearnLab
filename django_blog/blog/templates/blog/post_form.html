@@ -1,0 +1,88 @@
+{% extends "blog/base.html" %}
+
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'blog/css/tags.css' %}">
+{% endblock %}
+
+{% block title %}New Post{% endblock %}
+
+{% block content %}
+<h1>Create Post</h1>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+
+  <div>
+    {{ form.title.label_tag }}
+    {{ form.title }}
+    {{ form.title.errors }}
+  </div>
+
+  <div style="padding-top: 20px; padding-bottom: 20px;">
+    {{ form.content.label_tag }}
+    {{ form.content }}
+    {{ form.content.errors }}
+  </div>
+
+  <div style="padding-bottom: 20px;">
+      <label for="tags-input">Tags:</label>
+      <div id="tags-container" class="tags-container"></div>
+      <input type="text" id="tags-input" placeholder="Add a tag and press Enter" style="margin-top:5px;">
+      <input type="hidden" name="tags" id="tags-hidden">
+  </div>
+
+  <label for="photo">Image:</label>
+  <div id="photo" style="padding-top: 7px; padding-bottom: 40px;">
+    {{ form.photo }}
+  </div>
+
+  <div>
+    {{ form.published.label_tag }}
+    {{ form.published }}
+  </div>
+
+  <button type="submit">Save</button>
+  <a href="{% url 'blog:post-list' %}" style="text-decoration: none; font-weight: bold; background-color: rgb(232, 114, 114); padding: 11px; border-radius: 10px; color: black; margin-left: 20px;">Cancel</a>
+</form>
+
+<script>
+const tagsContainer = document.getElementById('tags-container');
+const tagsInput = document.getElementById('tags-input');
+const tagsHidden = document.getElementById('tags-hidden');
+let tags = [];
+
+function renderTags() {
+    tagsContainer.innerHTML = '';
+    tags.forEach((tag, index) => {
+        const chip = document.createElement('span');
+        chip.className = 'tag-chip';
+        chip.textContent = tag + ' ×';
+        chip.onclick = () => removeTag(index);
+        tagsContainer.appendChild(chip);
+    });
+    tagsHidden.value = tags.join(',');
+}
+
+tagsInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        const value = tagsInput.value.trim();
+        if (value && !tags.includes(value)) {
+            tags.push(value);
+            renderTags();
+        }
+        tagsInput.value = '';
+    }
+});
+
+function removeTag(index) {
+    tags.splice(index, 1);
+    renderTags();
+}
+
+// Initial render
+renderTags();
+</script>
+{% endblock %}

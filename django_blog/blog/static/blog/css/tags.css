@@ -1,0 +1,21 @@
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 40px;
+}
+
+.tag-chip {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.tag-chip:hover {
+    background-color: #0056b3;
+}

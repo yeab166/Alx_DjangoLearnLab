@@ -1,0 +1,290 @@
+/* ---------- General Layout ---------- */
+body, h1, h2, h3, h4, h5, h6, p, a, input, button {
+  font-family: cursive;
+}
+
+.post-item {
+    list-style: none;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+    max-width: 700px;
+}
+
+.post-item img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+/* ---------- Post Title ---------- */
+.post-item h2 {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+.post-item h2 a {
+    text-decoration: none;
+    color: #1e1e1e;
+}
+
+.post-item h2 a:hover {
+    color: #3498db;
+}
+
+/* ---------- Metadata ---------- */
+.meta {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.link {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Post Content ---------- */
+.paragraph {
+    margin: 15px 0;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* ---------- Dates ---------- */
+.post-date {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+/* ---------- Comments Section ---------- */
+h3 {
+    margin-top: 30px;
+    font-size: 1.4rem;
+}
+
+/* Comment box */
+.comment-box {
+    background: #f8f8f8;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid #3498db;
+}
+
+.comment-box p {
+    margin: 5px 0;
+}
+
+.edit{
+    color: #1871ee !important;
+}
+/* Comment Edit/Delete Links */
+.comment-box a {
+    color: #e74c3c;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.comment-box a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Add Comment Form ---------- */
+form textarea,
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+form button {
+    background: #3498db;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #217dbb;
+}
+
+/* ---------- Tags ---------- */
+.tag {
+    background: #eef6ff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin: 3px;
+    display: inline-block;
+}
+
+.tag a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.tag a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Back Button ---------- */
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+
+/* ---------- Comments Divider ---------- */
+hr {
+    margin: 40px 0 20px;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* ---------- Comments Title ---------- */
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* ---------- Individual Comment Box ---------- */
+.comment-box {
+    background: #f9f9f9;
+    padding: 15px 18px;
+    border-left: 4px solid #3498db;
+    border-radius: 6px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Author and timestamp line */
+.comment-box strong {
+    color: #1e1e1e;
+    font-size: 1rem;
+}
+
+.comment-box small {
+    color: #777;
+    font-size: 0.85rem;
+    margin-left: 4px;
+}
+
+/* The comment text itself */
+.comment-box p {
+    margin: 8px 0;
+    line-height: 1.5;
+    color: #444;
+}
+
+/* ---------- Edit/Delete Links ---------- */
+.comment-box a {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-right: 6px;
+}
+
+.comment-box a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Tags Section (when there are no comments) ---------- */
+.tags-section {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.tags-section a {
+    background: #eef6ff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #3498db;
+}
+
+.tags-section a:hover {
+    background: #dbeaff;
+}
+
+/* ---------- Add Comment Form ---------- */
+h4 {
+    margin-top: 25px;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 600;
+}
+
+form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    resize: vertical;
+    min-height: 120px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+form button {
+    background: #3498db;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+form button:hover {
+    background: #217dbb;
+}
+
+/* ---------- Login to comment ---------- */
+.login-message a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.login-message a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Back to posts link ---------- */
+.back-link {
+    margin-top: 30px;
+    display: inline-block;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
